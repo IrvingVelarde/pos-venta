@@ -1,0 +1,11 @@
+# Ocultando todas las carpetas del directorio del proyecto y que cualquier usuario NO pueda entrar a un determinado directorio a travez de la URL
+     Options All -Indexes
+# Para activar mod_rewite en primer lugar tendremos que usar la directiva para activar el módulo. Para desactivarlo sólo tendríamos que poner Off
+     RewriteEngine On
+# Expresiones regulares	Significado
+# ^	Indica el comienzo de una secuencia.
+# $	Marca el final de una secuencia.
+# (expresion o caracteres permitidos)	Marcador para cualquier sucesión de caracteres dentro de un URL.Los paréntesis guardan la sucesión en una variable.
+# $1	Una variable que permite acceder a valores almacenados por los paréntesis en una memoria intermedia.
+# Finalmente decimos cuando se este enviando a traves de la ruta index.php con la varible GET ruta que todo el valor que traiga ruta se convierta en una ruta amigable y $1 traiga la ruta y la convierta en una ruta amigable
+     RewriteRule ^([-a-zA-Z0-9]+)$ index.php?ruta=$1
